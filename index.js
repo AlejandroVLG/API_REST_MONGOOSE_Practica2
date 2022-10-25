@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 const Product = require('./models/product')
 
 const app = express()
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3000
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -46,7 +46,7 @@ app.post('/api/product', (req, res) => {
 
     product.save((err, productStored) => {
         if (err) res.status(500).send(
-            { message: `Error al salvar en la base de datos: ${err}` }
+            { message: `Error al crear un nuevo producto en la base de datos: ${err}` }
         )
         res.status(200).send({ product: productStored })
     })
@@ -56,18 +56,19 @@ app.put('/api/product/:/productId', (req, res) => {
 
 })
 
-app.delete('api/product/:productId', (req, res) => {
-    let productId = req.params.productId
+app.delete('/api/product/:productId', (req, res) => {
+    let productId = req.params.productId;
 
     Product.findById(productId, (err, product) => {
-        if (err) res.status(500).send({ message: `Error al borrar el producto: ${err}` })
-
+        if (err) res.status(500).send({ message: `Error al borrar el producto: ${err}` });
+        
         product.remove(err => {
-            if (err) res.status(500).send({ message: `Error al borrar el producto: ${err}` })
-            res.status(200).send({ message: 'El producto ha sido eliminado' })
-        })
-    })
-})
+            if (err) res.status(500).send({ message: `Error al borrar el producto: ${err}` });
+            res.status(200).send({ message: 'El producto ha sido eliminado' });
+        });
+    });
+});
+
 
 mongoose.connect('mongodb://localhost:27017/shop', (err, res) => {
     if (err) {
