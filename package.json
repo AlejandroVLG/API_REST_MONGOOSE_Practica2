@@ -1,11 +1,19 @@
 {
   "name": "api-rest-con-user",
   "version": "1.0.0",
-  "description": "Ejercicio de practica mongoose",
+  "description": "Ejercicio de practica mongoose con Node.js y Express",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "author": "Alejandro Laguia Garcia",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
