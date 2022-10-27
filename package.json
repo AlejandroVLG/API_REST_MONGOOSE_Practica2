@@ -10,7 +10,9 @@
   "author": "Alejandro Laguia Garcia",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
+    "crypto": "^1.0.1",
     "express": "^4.18.2",
     "mongoose": "^6.7.0"
   },
