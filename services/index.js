@@ -15,7 +15,9 @@ function createToken(user) {
 }
 
 function decodeToken(token) {
+
     const decoded = new Promise((resolve, reject) => {
+        
         try {
             const payload = jwt.decode(token, config.SECRET_TOKEN)
 

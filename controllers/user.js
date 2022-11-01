@@ -36,7 +36,17 @@ function signIn(req, res) {
     })
 }
 
+function getUsers(req, res) {
+    User.find({}, (err, users) => {
+        if (err) res.status(500).send({ message: `Error al realizar la peticion: ${err}` })
+        if (!users) return res.status(404).send({ message: `No existen productos` })
+
+        res.send(200, { users })
+    })
+}
+
 module.exports = {
     signUp,
-    signIn
+    signIn,
+    getUsers
 }

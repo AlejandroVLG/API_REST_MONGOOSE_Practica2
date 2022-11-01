@@ -1,12 +1,15 @@
 'use strict'
 
 const express = require('express')
+const bodyParser = require('body-parser')
 const app = express()
 const api = require('./routes/index')
-const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+app.set('view engine', '.hbs')
+
 app.use('/api', api)
 
 module.exports = app

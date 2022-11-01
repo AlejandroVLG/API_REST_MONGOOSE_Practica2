@@ -16,6 +16,7 @@ api.get('/private', auth, function (req, res) {
     res.status(200).send({ message: 'Tienes acceso' })
 })
 
+api.get('/showUsers', userCtrl.getUsers)
 api.post('/signup', userCtrl.signUp)
 api.post('/signin', userCtrl.signIn)
 
