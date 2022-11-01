@@ -17,6 +17,7 @@ function signUp(req, res) {
         if (err) res.status(500).send({ message: `Error al crear el usuario: ${err}` })
 
         return res.status(200).send({
+            message: `El usuario ${user.email}, ha sido creado`,
             token: service.createToken(user)
         })
     })

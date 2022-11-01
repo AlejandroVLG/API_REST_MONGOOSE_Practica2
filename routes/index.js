@@ -4,6 +4,7 @@ const express = require('express')
 const api = express.Router()
 const productCtrl = require('../controllers/product')
 const auth = require('../middlewares/auth')
+const userCtrl = require('../controllers/user')
 
 api.get('/products', productCtrl.getProducts)
 api.get('/product/:productId', productCtrl.getProduct)
@@ -15,11 +16,9 @@ api.get('/private', auth, function (req, res) {
     res.status(200).send({ message: 'Tienes acceso' })
 })
 
-/* api.get('/users', userCtrl)
-api.get('/user/:userId', userCtrl)
-api.post('/user', userCtrl)
-api.put('/user/:userId', userCtrl)
-api.delete('/user/:userId', userCtrl) */
+api.post('/signup', userCtrl.signUp)
+api.post('/signin', userCtrl.signIn)
+
 
 
 module.exports = api 
