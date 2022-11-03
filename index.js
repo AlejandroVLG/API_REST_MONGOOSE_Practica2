@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 const app = require('./app')
 const config = require('./config')
-require('dotenv').config()
+require('dotenv').config({ path: 'ENV_FILENAME' })
 
 mongoose.connect(process.env.DATABASE, (error, res) => {
     if (error) {
