@@ -4,8 +4,9 @@ const mongoose = require('mongoose')
 
 const app = require('./app')
 const config = require('./config')
+require('dotenv').config()
 
-mongoose.connect(config.db, (error, res) => {
+mongoose.connect(process.env.MONGODB_URL, (error, res) => {
     if (error) {
         return console.log(`Error al conectar a la base de datos: ${error}`)
     } else {
@@ -16,3 +17,5 @@ mongoose.connect(config.db, (error, res) => {
         console.log(`API REST corriendo en http://localhost:${config.port}`)
     })
 })
+
+
