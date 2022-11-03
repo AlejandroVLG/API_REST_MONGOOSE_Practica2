@@ -4,7 +4,6 @@ const mongoose = require('mongoose')
 
 const app = require('./app')
 const config = require('./config')
-require('dotenv').config()
 
 mongoose.connect(config.db, (error, res) => {
     if (error) {
