@@ -4,13 +4,13 @@ const mongoose = require('mongoose')
 
 const app = require('./app')
 const config = require('./config')
-require('dotenv').config({ path: 'ENV_FILENAME' })
+require('dotenv').config()
 
-mongoose.connect(process.env.DATABASE, (error, res) => {
+mongoose.connect(config.db, (error, res) => {
     if (error) {
         return console.log(`Error al conectar a la base de datos: ${error}`)
     } else {
-        console.log('Conexion a la base de datos establecida')
+        console.log('Conexion a la base de datos establecida..')
     }
 
     app.listen(config.port, () => {
